@@ -76,7 +76,7 @@ def edit_log(log: str) -> str:
 
         params = parse_bundle_to_params(bundle_content)
 
-        return f"{time} {origin.replace('=', ': ')}\033[1m | {event_name.replace('=', ': ')}\033[m \n{json.dumps(params, indent=2).replace('\"', '')}\n"
+        return f"{time} {origin.replace('=', ': ')} | {event_name.replace('=', ': ')} \n{json.dumps(params, indent=2).replace('\"', '')}\n"
 
     except Exception as error:
         return log
