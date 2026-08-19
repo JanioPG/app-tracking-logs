@@ -39,7 +39,7 @@ def parse_bundle_to_params(content: str) -> str:
     list_pattern = re.compile(r"([a-zA-Z0-9_]+)=\[Bundle\[\{(.*?)\}\](?:,\s*Bundle\[\{(.*?)\}\])*\]")
     
     # handle key=value pairs
-    item_pattern = re.compile(r"([a-zA-Z0-9_()]+)=(.+?)(?=\,\s*[a-zA-Z0-9_()]+=|\s*$)")
+    item_pattern = re.compile(r"([a-zA-Z0-9_()]+)=(.*?)(?=\,\s*[a-zA-Z0-9_()]+=|\s*$)")
 
     # extract items
     for match in list_pattern.finditer(content):
@@ -105,7 +105,7 @@ def no_arguments() -> None:
             elif is_automatic_event:
                 show_log(f"{colors.LIGHT_GRAY}{line}{colors.CLOSE}")
             else:
-                show_log(f"{line}")
+                show_log(line)
 
 
 def with_arguments(args: argparse.Namespace) -> None:

@@ -72,13 +72,13 @@ def print_default(event_log: str) -> None:
     e_auto = re.compile(r'origin.*auto')
     
     if e_screenview.search(event_log) and not e_auto.search(event_log):
-        show_log(f"{colors.BLUE}{event_log}{colors.CLOSE}")
+        show_log(f"{colors.LIGHT_CYAN}{event_log}{colors.CLOSE}")
 
     elif e_auto.search(event_log):
         show_log(f"{colors.LIGHT_GRAY}{event_log}{colors.CLOSE}")
 
     else:
-        show_log(f"{colors.YELLOW}{event_log}{colors.CLOSE}")
+        show_log(event_log)
     
 
 def print_single_argument(event_log:str, pattern1:str) -> None:
@@ -110,6 +110,6 @@ def print_double_argument(event_log:str, pattern1:str, pattern2:str) -> None:
     if len(check_terms) == 2:
         check_terms.sort() # sort - alphabetical order
         event_log = re.sub(f"{check_terms[0]}", f"{colors.GREEN}{check_terms[0]}{colors.CLOSE}", event_log)
-        event_log = re.sub(f"{check_terms[1]}", f"\{colors.BLUE}{check_terms[1]}{colors.CLOSE}", event_log)
+        event_log = re.sub(f"{check_terms[1]}", f"{colors.BLUE}{check_terms[1]}{colors.CLOSE}", event_log)
         
         show_log(event_log)
